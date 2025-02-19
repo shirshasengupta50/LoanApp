@@ -202,6 +202,30 @@ const loanEligibility = async(req, res)=>{
     }
 }
 
+const getUser = async(req, res)=>{
+    try {
+        const data = req.body;
+
+        const response = await User.findOne(data);
+
+        return res.status(201).json({
+            data: response,
+            error:{},
+            success: true,
+            message: "Loan Application Created"
+        });
+
+    } catch (error) {
+        console.log("Error in User Controller Layer");
+        return res.status(500).json({
+            data: {},
+            error: error,
+            success: false,
+            message: "Loan Application not created"
+        });
+    }
+}
+
 module.exports = {
     userRegistration,
     loanApplicationSubmission,
@@ -209,5 +233,6 @@ module.exports = {
     logIn,
     verifyOTP,
     verifyToken,
-    loanEligibility
+    loanEligibility,
+    getUser
 }

@@ -12,5 +12,6 @@ router.post('/verifyToken', tokenAuthentication, userController.verifyToken);
 router.post('/loanApplicationSubmit', userController.loanApplicationSubmission);
 router.post('loanEligibility', userController.loanEligibility);
 router.get('/loanStatus', userController.loanStatusTracking);
+router.get('getUser', userController.getUser);
 
 module.exports = router;
