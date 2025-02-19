@@ -204,9 +204,9 @@ const loanEligibility = async(req, res)=>{
 
 const getUser = async(req, res)=>{
     try {
-        const data = req.body;
+        const { mobileNumber } = req.body;
 
-        const response = await User.findOne(data);
+        const response = await User.findOne({ mobileNumber });
 
         return res.status(201).json({
             data: response,
